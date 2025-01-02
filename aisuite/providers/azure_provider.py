@@ -26,7 +26,7 @@ class AzureProvider(Provider):
         data = {"messages": messages, **kwargs}
 
         body = json.dumps(data).encode("utf-8")
-        headers = {"Content-Type": "application/json", "Authorization": f"Bearer {self.api_key}"}
+        headers = {"Content-Type": "application/json", "api-key": self.api_key}
 
         try:
             req = urllib.request.Request(url, body, headers)

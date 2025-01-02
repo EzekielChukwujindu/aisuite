@@ -18,10 +18,8 @@ class AzureProvider(Provider):
             )
 
     def chat_completions_create(self, model, messages, **kwargs):
-        url = f"https://{model}.westus3.models.ai.azure.com/v1/chat/completions"
-        url = f"https://{self.base_url}/chat/completions"
         if self.base_url:
-            url = f"{self.base_url}/chat/completions"
+            url = self.base_url
 
         # Remove 'stream' from kwargs if present
         kwargs.pop("stream", None)
